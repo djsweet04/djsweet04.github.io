@@ -1,0 +1,66 @@
+<DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Explode Him</title>
+        <style>
+            body{
+                font-family: "Lucida Terminal", monospace;
+                text-align: center;
+                margin-top: 50px;
+                color:darkorange;
+                text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+            }
+            p{
+                color:black;
+                text-shadow: 0 0 black;
+            }
+
+            img{
+                width: 500px;
+                height: auto;
+                cursor: crosshair;
+                transition: 0.2s;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Explode the Cacodemon</h1>
+        <p>Click the Cacodemon to make him explode</p>
+        <br>
+        <!--Put image in here-->
+        <img id="cacodemon" src="cacodemon.png" alt=CacodemonDefault>
+        <br><br>
+        <button onclick="resetImage()">Reset</button>
+
+        <script>
+            const img = document.getElementById("cacodemon");
+
+            const cacoDefault = "cacodemon.png";
+            const cacoPog = "cacoPoggers.png";
+            const cacoExplode = "cacoExploded.png";
+            let isClicked = false;
+
+            img.addEventListener("mouseover", () => {
+                if (!isClicked) 
+                    img.src = cacoPog;
+            });
+            img.addEventListener("mouseout", () => {
+                if(!isClicked)
+                    img.src = cacoDefault;
+            });
+            img.addEventListener("click", () => {
+                img.src = cacoExplode;
+                isClicked = true;
+            });
+
+            function resetImage(){
+                img.src = cacoDefault;
+                isClicked = false;
+            }
+
+        </script>
+
+    </body>
+
+</html>
